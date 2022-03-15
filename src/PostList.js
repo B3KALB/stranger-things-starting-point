@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getPosts } from './api';
-
+//useEffect example
 const PostList = () => {
     const [posts, setPosts] = useState([]);
 
@@ -15,10 +15,12 @@ const PostList = () => {
                 <div key={post.id}>
                     <h2>{post.title}</h2>
                     <p>{post.body}</p>
+                    <p>{post.price}</p>
+                    <p>{post.location}</p>
                 </div>
             )}
         </div>
     );
 };
-
+//useEffect example
 export default PostList;

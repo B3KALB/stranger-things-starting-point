@@ -1,8 +1,12 @@
 
 import React from "react";
 import { hot } from 'react-hot-loader/root';
-import PostForm from "./PostForm";
-import PostList from "./PostList";
+import { PostList } from "./PostList";
+import { LoginPage } from "./LoginPage";
+import { NewUser } from "./NewUser";
+import { PostForm } from "./PostForm";
+import { DeletePost } from "./DeletePost";
+
 
 const App = (props) => {
   const { name } = props;
@@ -14,8 +18,12 @@ const App = (props) => {
       <h1>Hot reload is working?</h1>
     </div>
       <h1>Welcome, {name}</h1>
-      <PostForm />
+
       <PostList />
+      <LoginPage />
+      <NewUser />
+      <PostForm />
+      <DeletePost />
     </>
   );
 }

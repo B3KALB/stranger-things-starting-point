@@ -40,11 +40,15 @@ const PostForm = () => {
   }
 
   return (
-    <div>
-        <input value={title} onChange={handleTitleChange}/>
-        <input value={body} onChange={handleBodyChange}/>
-        <input value={price} onChange={handlePriceChange}/>
-        <input value={location} onChange={handleLocationChange}/>
+    <div id="postFormId">
+        <label>Title</label>
+        <input value={title} onChange={handleTitleChange} placeholder="What is it?"/>
+        <label>Body</label>
+        <input value={body} onChange={handleBodyChange} placeholder="Tell us about it."/>
+        <label>Price</label>
+        <input value={price} onChange={handlePriceChange} placeholder="How much is it?"/>
+        <label>Location</label>
+        <input value={location} onChange={handleLocationChange} placeholder="Where is it?"/>
         <button onClick={handlePostButtonClick}>
           Make Post Request!
         </button>
