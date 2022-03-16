@@ -1,4 +1,4 @@
-const baseUrl = 'https://https://strangers-things.herokuapp.com/api/2112-FTB-ET-WEB-PT';
+const baseUrl = 'https://strangers-things.herokuapp.com/api/2112-FTB-ET-WEB-PT';
 // const token = ;
 
 export const getPosts = async () => {
@@ -27,7 +27,7 @@ export const testAutentication = async () => {
 
 export const registerUser = async (userObject) => {
 
-    const url = `${baseUrl}/user/register`;
+    const url = `${baseUrl}/users/register`;
     const response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -43,14 +43,21 @@ export const registerUser = async (userObject) => {
 }
 
 export const createNewPost = async (newPost) => {
-    
-    const url = `${baseUrl}`;
+    console.log(newPost)
+    //auth tell who makes post , if alowed
+    const token = localStorage.getItem('stranger_things_JWT')
+    const url = `${baseUrl}/posts`;
     const response = await fetch(url, {
         method: 'POST',
         headers: {
-            'content-Type': 'application/json'
+            'content-Type': 'application/json',
+            'Authorization': `bearer ${token}`
         },
-        body: JSON.stringify(newPost)
+        body: JSON.stringify({
+            post: newPost 
+            
+        })
+    
     });
     const json = await response.json();
         console.log(json);

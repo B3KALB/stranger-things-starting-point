@@ -1,13 +1,13 @@
 import React from "react";
 import { registerUser } from "./api";
 
-export const NewUser = () => {
+const NewUser = () => {
     return (
         <div>
             <button onClick={() => {
                 const dummyCreds = {
                     user: {
-                userName: "B3KALB",
+                username: "B3KALB1",
                 password: "2112isMyClass"
                 }
             }
@@ -18,3 +18,5 @@ export const NewUser = () => {
 </div>
     );
 };
+
+export default NewUser;

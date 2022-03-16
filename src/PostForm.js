@@ -8,12 +8,13 @@ const PostForm = () => {
   const [location, setLocation] = useState("");
 
   const handlePostButtonClick = () => {
-    console.log("Making a post request...");
+   //console.log("Making a post request...");
     const dummyBody = {
       title: title,
-      body: body,
+      description: body,
       price: price,
       location: location,
+      willDeliver: true
     };
     createNewPost(dummyBody);+
 
