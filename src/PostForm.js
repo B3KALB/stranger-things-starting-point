@@ -6,6 +6,7 @@ const PostForm = () => {
   const [body, setBody] = useState("");
   const [price, setPrice] = useState("");
   const [location, setLocation] = useState("");
+  const [willDeliver, setWillDeliver] = useState(false);
 
   const handlePostButtonClick = () => {
    //console.log("Making a post request...");
@@ -16,12 +17,13 @@ const PostForm = () => {
       location: location,
       willDeliver: true
     };
-    createNewPost(dummyBody);+
+    createNewPost(dummyBody);
 
     setTitle("");
     setBody("");
     setPrice("");
     setLocation("");
+    setWillDeliver("")
   };
 
   const handleTitleChange = (event) => {
@@ -40,16 +42,22 @@ const PostForm = () => {
     setLocation(event.target.value);
   }
 
+  const handleDeliverChange = (event) => {
+      setWillDeliver(event.target.value)
+  }
+
   return (
     <div id="postFormId">
         <label>Title</label>
         <input value={title} onChange={handleTitleChange} placeholder="What is it?"/>
-        <label>Body</label>
+        <label>Description</label>
         <input value={body} onChange={handleBodyChange} placeholder="Tell us about it."/>
         <label>Price</label>
         <input value={price} onChange={handlePriceChange} placeholder="How much is it?"/>
         <label>Location</label>
-        <input value={location} onChange={handleLocationChange} placeholder="Where is it?"/>
+        <input value={location} onChange={handleLocationChange} placeholder="City, ST"/>
+        <label>Will deliver?</label>
+        <input value={willDeliver} onChange={handleDeliverChange} placeholder="ture or false"/>
         <button onClick={handlePostButtonClick}>
           Make Post Request!
         </button>

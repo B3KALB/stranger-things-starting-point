@@ -25,15 +25,19 @@ export const testAutentication = async () => {
         return json;
 };
 
-export const registerUser = async (userObject) => {
+export const registerUser = async (username, password) => {
 
     const url = `${baseUrl}/users/register`;
     const response = await fetch(url, {
         method: 'POST',
         headers: {
-            'content-Type': 'application/json'
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify(userObject)
+        body: JSON.stringify({
+            user: {username: username,
+            password: password}
+        })
+
     });
 
     const json = await response.json();

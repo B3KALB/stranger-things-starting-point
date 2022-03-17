@@ -19,10 +19,10 @@ const App = (props) => {
     </div>
       <h1>Welcome, {name}</h1>
 
-      <PostList />
       <LoginPage />
       <NewUser />
       <PostForm />
+      <PostList />
       <DeletePost />
     </>
   );
