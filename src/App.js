@@ -5,7 +5,6 @@ import PostList from "./PostList";
 import LoginPage from "./LoginPage";
 import NewUser from "./NewUser";
 import PostForm from "./PostForm";
-import DeletePost from "./DeletePost";
 
 
 const App = (props) => {
@@ -23,7 +22,6 @@ const App = (props) => {
       <NewUser />
       <PostForm />
       <PostList />
-      <DeletePost />
     </>
   );
 }

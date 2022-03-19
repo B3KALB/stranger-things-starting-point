@@ -1,20 +1,17 @@
 import React, {useState} from "react";
 import { registerUser } from "./api";
 
-
 const NewUser = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     const handleRegisterUserButtonClick = () => {
-        console.log("Making a post request...");
-      
+        console.log("Making a user request...");
         registerUser(username, password);
 
         setUsername("");
         setPassword("");
     };
-
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
       }
@@ -22,11 +19,11 @@ const NewUser = () => {
         setPassword(event.target.value);
       }
     return (
-        <div>
+        <div id="newUserPage">
             <label>Username</label>
-            <input value={username} onChange={handleUsernameChange} placeholder="Username"/>
+            <input type="email" value={username} onChange={handleUsernameChange} placeholder="Please enter email" required/>
             <label>Password</label>
-            <input value={password} onChange={handlePasswordChange} placeholder="Password"/>
+            <input type="password" value={password} onChange={handlePasswordChange} placeholder="Password" required/>
             <button onClick={() => {
         handleRegisterUserButtonClick();
     }}>
@@ -35,6 +32,4 @@ const NewUser = () => {
 </div>
     );
 };
-
-
 export default NewUser;

@@ -3,7 +3,14 @@ const baseUrl = 'https://strangers-things.herokuapp.com/api/2112-FTB-ET-WEB-PT';
 
 export const getPosts = async () => {
     const url = `${baseUrl}/posts/`;
-    const response = await fetch(url)
+    const token = localStorage.getItem('stranger_things_JWT')
+    console.log(token)
+    const response = await fetch(url, {
+        headers: {
+            'content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        } 
+    })
     const json = await response.json()
     return json;
 } 
@@ -11,11 +18,12 @@ export const getPosts = async () => {
 export const testAutentication = async () => {
 
     const url = `${baseUrl}/test/me`;
-    const token = localStorage.setItem('stranger_things_JWT');
+    const token = localStorage.getItem('stranger_things_JWT');
     const response = await fetch(url, {
         method:"GET",
         headers: {
-            'Authorization': `bearer ${token}`
+            'content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
         } 
     });
     console.log(response)
@@ -55,21 +63,31 @@ export const createNewPost = async (newPost) => {
         method: 'POST',
         headers: {
             'content-Type': 'application/json',
-            'Authorization': `bearer ${token}`
+            'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
             post: newPost 
-            
-        })
+            })
     
     });
     const json = await response.json();
         console.log(json);
-
-        localStorage.setItem('stranger_things_JWT', json.data.token);
         return json;
 }
 
+export const updateNewPost = async (postId,newPost) => {
+    const url = `${baseUrl}/posts/${postId}`;
+    const response = await fetch(url, {
+        method: 'PATCH',
+        headers: {
+            'content-Type': 'application/json'
+        },
+        body: JSON.stringify(newPost)
+    });
+        const json = await response.json();
+        console.log(json);
+        return json;
+};
 export const deletePostById = async (postId) => {
     const url = `${baseUrl}/post/${postId}`;
     const response = await fetch(url, {
