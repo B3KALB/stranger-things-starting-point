@@ -1,13 +1,17 @@
 import React, {useState} from "react";
 import { testAutentication } from "./api";
 
-const LoginPage = () => {
+const LoginPage = (props) => {
+    const setIsLoggedIn  = props.isLoggedIn;
+    const isValidJWT = props.isValidJWT;
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const loginButton = () => {
+    const loginButton = async () => {
         setUsername("");
         setPassword("");
-        testAutentication()
+        setIsLoggedIn(true);
+        await testAutentication();
+        await isValidJWT();
     }
     const handleUsername = (event) => {
             setUsername(event.target.value);
@@ -22,7 +26,9 @@ const LoginPage = () => {
             <input type="email" value={username} onChange={handleUsername} placeholder="Please enter email" required/>
             <label>Password</label>
             <input type="password" value={password} onChange={handlePassword} placeholder="Password" required/>
-        <button onClick={loginButton}>Log in</button>
+        <button onClick={() => {
+            loginButton();
+            }}>Log in</button>
     </div>
     
     )};

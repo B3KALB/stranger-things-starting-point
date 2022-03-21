@@ -7,7 +7,7 @@ export const getPosts = async () => {
     console.log(token)
     const response = await fetch(url, {
         headers: {
-            'content-Type': 'application/json',
+            'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         } 
     })
@@ -22,7 +22,7 @@ export const testAutentication = async () => {
     const response = await fetch(url, {
         method:"GET",
         headers: {
-            'content-Type': 'application/json',
+            'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         } 
     });
@@ -62,7 +62,7 @@ export const createNewPost = async (newPost) => {
     const response = await fetch(url, {
         method: 'POST',
         headers: {
-            'content-Type': 'application/json',
+            'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
@@ -80,7 +80,7 @@ export const updateNewPost = async (postId,newPost) => {
     const response = await fetch(url, {
         method: 'PATCH',
         headers: {
-            'content-Type': 'application/json'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(newPost)
     });
