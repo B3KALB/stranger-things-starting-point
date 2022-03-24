@@ -2,8 +2,8 @@ import React, {useState} from "react";
 import { testAutentication } from "./api";
 
 const LoginPage = (props) => {
-    const setIsLoggedIn  = props.isLoggedIn;
-    const isValidJWT = props.isValidJWT;
+    const {setIsLoggedIn}  = props;
+    const {isValidJWT} = props;
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const loginButton = async () => {

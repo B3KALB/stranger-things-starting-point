@@ -1,17 +1,16 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { hot } from 'react-hot-loader/root';
 import PostList from "./PostList";
 import LoginPage from "./LoginPage";
 import NewUser from "./NewUser";
 import PostForm from "./PostForm";
 import LogOutButton from "./LogOutButton"
-import { useEffect, useState } from "react/cjs/react.production.min";
 import { testAutentication } from "./api";
 
 
 const App = (props) => {
-  const { username } = props;
+  const {username} = props;
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 

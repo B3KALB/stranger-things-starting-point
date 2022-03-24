@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getPosts } from './api';
 import DeletePost from "./DeletePost";
-import UpdatePost from "./UpdatePost";
+//import UpdatePost from "./UpdatePost";
 //useEffect example
 const PostList = () => {
     const [posts, setPosts] = useState([]);
@@ -24,8 +24,8 @@ const PostList = () => {
                     <p>{post.willDeliver ? "will deliver" : "will not deliver" }</p>
                        {post.isAuthor ?
                         <div id="buttonContainer">
-                            <UpdatePost />
-                            <DeletePost />
+                            {/* <UpdatePost id={post._id}/> */}
+                            <DeletePost id={post._id}/>
                         </div> :
                         null
                         }

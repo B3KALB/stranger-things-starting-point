@@ -1,10 +1,11 @@
 import React from "react";
 import { deletePostById } from "./api";
 
-const DeletePost = () => {
+const DeletePost = (props) => {
+  const {id} = props;
   return(
     <div id="deleteButton">
-        <button onClick={deletePostById}>Delete post</button>
+        <button onClick={() => deletePostById(id)}>Delete post</button>
     </div>
   );
 };

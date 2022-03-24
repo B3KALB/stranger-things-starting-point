@@ -1,7 +1,7 @@
 import React from 'react';
 
 const LogOutButton = (props) => {
-    const setIsLoggedIn = props;
+    const {setIsLoggedIn} = props;
   return(
     <div id="logOutButton">
         <button onClick={() => {
